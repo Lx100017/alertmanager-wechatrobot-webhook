@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"prometheus-to-webhook/model"
-	"prometheus-to-webhook/notifier"
+	"github.com/jacobslei/alertmanager-wechatrobot-webhook/model"
+	"github.com/jacobslei/alertmanager-wechatrobot-webhook/notifier"
 )
 
 var (
