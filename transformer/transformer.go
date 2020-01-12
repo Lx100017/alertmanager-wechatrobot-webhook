@@ -25,7 +25,6 @@ func TransformToMarkdown(notification model.Notification) (markdown *model.WeCha
 		buffer.WriteString(fmt.Sprintf("\n>告警严重级别: %s\n", labels["severity"]))
 		buffer.WriteString(fmt.Sprintf("\n>告警类型名称: %s\n", labels["alertname"]))
 		buffer.WriteString(fmt.Sprintf("\n>故障主机地址: %s\n", labels["ip"]))
-		buffer.WriteString(fmt.Sprintf("\n>故障所属团队: %s\n", labels["team"]))
 
 		annotations := alert.Annotations
 		buffer.WriteString(fmt.Sprintf("\n>告警主题: %s\n", annotations["summary"]))
