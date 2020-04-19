@@ -4,9 +4,11 @@ import (
 	"flag"
 	"net/http"
 
+	"github.com/chenjiandongx/ginprom"
 	"github.com/gin-gonic/gin"
 	"github.com/jacobslei/alertmanager-wechatrobot-webhook/model"
 	"github.com/jacobslei/alertmanager-wechatrobot-webhook/notifier"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 var (
@@ -36,6 +38,17 @@ func main() {
 	}
 
 	router := gin.Default()
+
+	router.Use(ginprom.PromMiddleware(nil))
+
+	// register the `/metrices` route.
+	router.GET("/metrics", ginprom.PromHandler(promhttp.Handler()))
+
+	// your working routes
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"message": "Index Page"})
+	})
+
 	router.POST("/webhook", func(c *gin.Context) {
 		var notification model.Notification
 
@@ -83,5 +96,6 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"message": "send to wechatbot successful!"})
 
 	})
+
 	router.Run(":8999")
 }
