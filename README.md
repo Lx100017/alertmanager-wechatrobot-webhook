@@ -1,13 +1,22 @@
-# alertmanager-wechatrobot-webhook
-Convert alertmanger webhook messages to qiye WeChat robots that can receive messages
+# alertmanager-WeChat-webhook
+- 支持发送给到企业微信机器人
+- 支持发送应用消息
 
-## How use
+
+## How use 
 ```
 ./alertmanager-wechatbot-webhook  --RobotKey="xxxxxx-xxxxx-xxxxx-xxxxxx-xxxxxxx"
+
+./alertmanager-wechatbot-webhook  --CorpId=XXXXXXX --AppSecret=YYYYYYYYYY
+
 ```
+
 或
 ```
 go run alertmanager-wechatbot-webhook.go  --RobotKey="xxxxxx-xxxxx-xxxxx-xxxxxx-xxxxxxx"
+
+go run alertmanager-wechatbot-webhook.go  --CorpId=XXXXXXX --AppSecret=YYYYYYYYYY
+
 ```
 ## configure
 
