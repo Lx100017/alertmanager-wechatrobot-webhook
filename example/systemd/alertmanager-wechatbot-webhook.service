@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 
 ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=/usr/local/bin/alertmanager-wechatbot-webhook --RobotKey=xxxxxx-xxxxx-xxxxx-xxxxxx-xxxxxxx
+ExecStart=/usr/local/bin/alertmanager-wechatbot-webhook --RobotKey=xxxxxx-xxxxx-xxxxx-xxxxxx-xxxxxxx --CorpId=XXXXXXX --AppSecret=YYYYYYYYYY
 SuccessExitStatus=143
 TimeoutStopSec=1
 Restart=always
